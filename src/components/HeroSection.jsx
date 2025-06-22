@@ -152,7 +152,7 @@ export function HeroSection() {
           <div className="stat-label">Projects Completed</div>
         </div>
         <div className="stat">
-          <div className="stat-number">20+</div>
+          <div className="stat-number">15+</div>
           <div className="stat-label">Years Experience</div>
         </div>
         <div className="stat">
