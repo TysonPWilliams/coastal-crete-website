@@ -1,21 +1,16 @@
 import { useState } from 'react'
 import './App.css'
+import { Header } from './components/Header'
 import { HeroSection } from './components/HeroSection'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Footer } from './components/Footer'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-        {/* <Navbar /> */}
-        <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<HeroSection/>} />
-        </Routes>
-      </BrowserRouter>
-      {/* <Footer /> */}
-    </>
+    <div className="App">
+      <Header />
+      <HeroSection />
+      <Footer />
+    </div>
   )
 }
 
