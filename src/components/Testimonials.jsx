@@ -86,7 +86,7 @@ export function Testimonials() {
                     </p>
                     <div className="testimonials-stats">
                         <div className="testimonial-stat">
-                            <div className="stat-number">4.9</div>
+                            <div className="stat-number">5.0</div>
                             <div className="stat-label">Average Rating</div>
                             <div className="stat-stars">★★★★★</div>
                         </div>
