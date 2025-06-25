@@ -71,18 +71,14 @@ export function HeroSection() {
             onClick={prevSlide}
             aria-label="Previous slide"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            &#9664; {/* ◀ */}
           </button>
           <button 
             className="nav-arrow next"
             onClick={nextSlide}
             aria-label="Next slide"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            &#9654; {/* ▶ */}
           </button>
         </div>
         
@@ -109,7 +105,7 @@ export function HeroSection() {
             <span className="highlight"> Your Shoalhaven Project</span>
           </h1>
           <p className="hero-subtitle">
-            From stylish driveways that enhance your property’s value to high-strength commercial 
+            From stylish driveways that enhance your property's value to high-strength commercial 
             foundations built to last, our master craftsmen deliver exceptional results that blend 
             precision with design.
           </p>
@@ -131,21 +127,20 @@ export function HeroSection() {
             <a href="#contact" className="btn btn-primary">Get Free Quote</a>
             <a href="tel:0497 820 957" className="btn btn-secondary">Call Now</a>
           </div>
-        </div>
-        <div className="hero-image">
-          <div className="hero-card">
-            <h3>Why Choose Coastal Crete?</h3>
-            <ul>
-                <li>🏆 15+ Years of Proven Expertise</li>
-                <li>🌟 Trusted Local Professionals</li>
-                <li>⚡ Reliable, On-Time Project Completion</li>
-                <li>💎 Only The Highest-Grade Materials</li>
-                <li>🛡️ Peace of Mind: Fully Insured</li>
-            </ul>
+          <div className="hero-trust-badge">
+            <a href="https://www.facebook.com/CoastalCretePtyLtd/reviews" target="_blank" rel="noopener noreferrer" className="trust-badge-link">
+              <span className="trust-badge-icon" aria-label="Facebook Star Rating">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style={{verticalAlign: 'middle'}}>
+                  <circle cx="10" cy="10" r="10" fill="#1877F3"/>
+                  <path d="M10 3l2.09 4.24L17 8.34l-3.45 3.36L14.18 17 10 14.27 5.82 17l.63-5.3L3 8.34l4.91-.1L10 3z" fill="#fff"/>
+                </svg>
+              </span>
+              <span className="trust-badge-text"><strong>5.0</strong> <span style={{color:'#fbbf24'}}>★</span> on Facebook</span>
+            </a>
           </div>
         </div>
+        
       </div>
-      
       <div className="hero-stats">
         <div className="stat">
           <div className="stat-number">500+</div>
