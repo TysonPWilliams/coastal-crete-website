@@ -127,6 +127,17 @@ export function HeroSection() {
             <a href="#contact" className="btn btn-primary">Get Free Quote</a>
             <a href="tel:0497 820 957" className="btn btn-secondary">Call Now</a>
           </div>
+          <div className="hero-trust-badge">
+            <a href="https://www.facebook.com/CoastalCretePtyLtd/reviews" target="_blank" rel="noopener noreferrer" className="trust-badge-link">
+              <span className="trust-badge-icon" aria-label="Facebook Star Rating">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style={{verticalAlign: 'middle'}}>
+                  <circle cx="10" cy="10" r="10" fill="#1877F3"/>
+                  <path d="M10 3l2.09 4.24L17 8.34l-3.45 3.36L14.18 17 10 14.27 5.82 17l.63-5.3L3 8.34l4.91-.1L10 3z" fill="#fff"/>
+                </svg>
+              </span>
+              <span className="trust-badge-text"><strong>5.0</strong> <span style={{color:'#fbbf24'}}>★</span> on Facebook</span>
+            </a>
+          </div>
         </div>
         
       </div>

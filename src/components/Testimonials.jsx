@@ -9,35 +9,40 @@ export function Testimonials() {
             rating: 5,
             text: "Coastal Crete did an amazing job on our driveway. Professional, punctual, and the quality is outstanding. Highly recommend!",
             date: "2024",
-            project: "Driveway Installation"
+            project: "Driveway Installation",
+            color: "#3b82f6"
         },
         {
             name: "Michael Thompson",
             rating: 5,
             text: "Excellent workmanship and attention to detail. Our new concrete patio looks fantastic and was completed on time and within budget.",
             date: "2024",
-            project: "Patio Construction"
+            project: "Patio Construction",
+            color: "#10b981"
         },
         {
             name: "Lisa Chen",
             rating: 5,
             text: "The team at Coastal Crete is incredibly professional. They transformed our outdoor space with beautiful concrete work. Very happy with the results!",
             date: "2024",
-            project: "Outdoor Living Space"
+            project: "Outdoor Living Space",
+            color: "#f59e42"
         },
         {
             name: "David Wilson",
             rating: 5,
             text: "Outstanding service from start to finish. The concrete foundation for our extension is rock solid. Great communication throughout the project.",
             date: "2024",
-            project: "Foundation Work"
+            project: "Foundation Work",
+            color: "#6366f1"
         },
         {
             name: "Emma Rodriguez",
             rating: 5,
             text: "Coastal Crete delivered exactly what we wanted. The decorative concrete work on our pool surround is absolutely stunning. Highly professional team!",
             date: "2024",
-            project: "Pool Surround"
+            project: "Pool Surround",
+            color: "#ef4444"
         }
     ]
 
@@ -59,6 +64,10 @@ export function Testimonials() {
                 ★
             </span>
         ))
+    }
+
+    const getInitials = (name) => {
+        return name.split(' ').map(n => n[0]).join('').toUpperCase();
     }
 
     return (
@@ -110,6 +119,9 @@ export function Testimonials() {
                             
                             <div className="testimonial-author">
                                 <div className="author-info">
+                                    <div className="author-avatar" style={{backgroundColor: testimonials[activeTestimonial].color}}>
+                                        {getInitials(testimonials[activeTestimonial].name)}
+                                    </div>
                                     <div className="author-name">
                                         {testimonials[activeTestimonial].name}
                                     </div>
@@ -166,8 +178,14 @@ export function Testimonials() {
                                 href="https://www.facebook.com/CoastalCretePtyLtd/reviews" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="btn btn-secondary"
+                                className="btn btn-secondary facebook-btn"
                             >
+                                <span className="facebook-logo" aria-label="Facebook">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="12" fill="#1877F3"/>
+                                        <path d="M15.36 8.26H13.5V7.13C13.5 6.7 13.8 6.6 14.01 6.6H15.33V4.5H13.5C11.57 4.5 11.5 6.02 11.5 7.13V8.26H10V10.5H11.5V16.5H13.5V10.5H15.09L15.36 8.26Z" fill="#fff"/>
+                                    </svg>
+                                </span>
                                 View All Reviews
                             </a>
                         </div>
