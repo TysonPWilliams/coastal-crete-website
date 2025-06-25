@@ -12,7 +12,7 @@ export function Footer() {
           <div className="footer-brand">
             <div className="footer-logo">
               <img src={logo} alt="Coastal Crete" />
-              <h3>Coastal Crete</h3>
+              {/* <h3>Coastal Crete</h3> */}
             </div>
             <p className="footer-description">
               Your trusted concrete specialists on the South Coast. Delivering quality workmanship and professional service with every project.
