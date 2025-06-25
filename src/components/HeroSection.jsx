@@ -105,7 +105,7 @@ export function HeroSection() {
             <span className="highlight"> Your Shoalhaven Project</span>
           </h1>
           <p className="hero-subtitle">
-            From stylish driveways that enhance your property’s value to high-strength commercial 
+            From stylish driveways that enhance your property's value to high-strength commercial 
             foundations built to last, our master craftsmen deliver exceptional results that blend 
             precision with design.
           </p>
@@ -128,20 +128,8 @@ export function HeroSection() {
             <a href="tel:0497 820 957" className="btn btn-secondary">Call Now</a>
           </div>
         </div>
-        <div className="hero-image">
-          <div className="hero-card">
-            <h3>Why Choose Coastal Crete?</h3>
-            <ul>
-                <li>🏆 15+ Years of Proven Expertise</li>
-                <li>🌟 Trusted Local Professionals</li>
-                <li>⚡ Reliable, On-Time Project Completion</li>
-                <li>💎 Only The Highest-Grade Materials</li>
-                <li>🛡️ Peace of Mind: Fully Insured</li>
-            </ul>
-          </div>
-        </div>
+        
       </div>
-      
       <div className="hero-stats">
         <div className="stat">
           <div className="stat-number">500+</div>
