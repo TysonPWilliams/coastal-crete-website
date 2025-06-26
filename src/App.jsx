@@ -6,6 +6,9 @@ import { Footer } from './components/Footer'
 import { WhyCoastalCrete } from './components/WhyCoastalCrete'
 import { Testimonials } from './components/Testimonials'
 import { StickyCallButton } from './components/StickyCallButton'
+import { StickyChatWidget } from './components/StickyChatWidget'
+import { ExitIntentPopup } from './components/ExitIntentPopup'
+import { ServiceArea } from './components/ServiceArea'
 
 function App() {
   return (
@@ -14,8 +17,11 @@ function App() {
       <HeroSection />
       <WhyCoastalCrete />
       <Testimonials />
+      <ServiceArea />
       <Footer />
       <StickyCallButton />
+      <StickyChatWidget />
+      <ExitIntentPopup />
     </div>
   )
 }
