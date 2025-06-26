@@ -1,8 +1,37 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import logo from '../assets/logo.png'
+
+const NAV_SECTIONS = [
+  { id: 'home', label: 'Home' },
+  { id: 'services', label: 'Services' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'about', label: 'About' },
+  { id: 'contact', label: 'Contact' },
+]
 
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [activeSection, setActiveSection] = useState('home')
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY + 120 // offset for sticky header
+            let currentSection = 'home'
+            for (const section of NAV_SECTIONS) {
+                const el = document.getElementById(section.id)
+                if (el) {
+                    const top = el.offsetTop
+                    if (scrollPosition >= top) {
+                        currentSection = section.id
+                    }
+                }
+            }
+            setActiveSection(currentSection)
+        }
+        window.addEventListener('scroll', handleScroll)
+        handleScroll()
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     return (
         <header className="header">
@@ -56,11 +85,16 @@ export function Header() {
                         className={`nav-list${isMenuOpen ? ' open' : ''}`}
                         onClick={() => setIsMenuOpen(false)}
                     >
-                        <li><a href="#home" className="nav-link">Home</a></li>
-                        <li><a href="#services" className="nav-link">Services</a></li>
-                        <li><a href="#projects" className="nav-link">Projects</a></li>
-                        <li><a href="#about" className="nav-link">About</a></li>
-                        <li><a href="#contact" className="nav-link">Contact</a></li>
+                        {NAV_SECTIONS.map(section => (
+                          <li key={section.id}>
+                            <a 
+                              href={`#${section.id}`}
+                              className={`nav-link${activeSection === section.id ? ' active' : ''}`}
+                            >
+                              {section.label}
+                            </a>
+                          </li>
+                        ))}
                     </ul>
                 </nav>
                 <div className="header-contact">

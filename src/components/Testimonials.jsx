@@ -1,7 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export function Testimonials() {
     const [activeTestimonial, setActiveTestimonial] = useState(0)
+    const [isPaused, setIsPaused] = useState(false)
+    const [slideDirection, setSlideDirection] = useState('next')
+    const [isSliding, setIsSliding] = useState(false)
+    const [prevTestimonial, setPrevTestimonial] = useState(0)
+    const intervalRef = useRef(null)
     
     const testimonials = [
         {
@@ -46,17 +51,37 @@ export function Testimonials() {
         }
     ]
 
-    const nextTestimonial = () => {
-        setActiveTestimonial((prev) => 
-            prev === testimonials.length - 1 ? 0 : prev + 1
-        )
+    const slideTo = (index, direction) => {
+        setSlideDirection(direction)
+        setPrevTestimonial(activeTestimonial)
+        setIsSliding(true)
+        setTimeout(() => {
+            setActiveTestimonial(index)
+            setIsSliding(false)
+        }, 400)
     }
 
-    const prevTestimonial = () => {
-        setActiveTestimonial((prev) => 
-            prev === 0 ? testimonials.length - 1 : prev - 1
-        )
+    const nextTestimonial = () => {
+        const nextIndex = activeTestimonial === testimonials.length - 1 ? 0 : activeTestimonial + 1
+        slideTo(nextIndex, 'next')
     }
+
+    const goToPrevTestimonial = () => {
+        const prevIndex = activeTestimonial === 0 ? testimonials.length - 1 : activeTestimonial - 1
+        slideTo(prevIndex, 'prev')
+    }
+
+    useEffect(() => {
+        if (isPaused) {
+            if (intervalRef.current) clearInterval(intervalRef.current)
+            return
+        }
+        intervalRef.current = setInterval(() => {
+            const nextIndex = activeTestimonial === testimonials.length - 1 ? 0 : activeTestimonial + 1
+            slideTo(nextIndex, 'next')
+        }, 5000)
+        return () => clearInterval(intervalRef.current)
+    }, [isPaused, testimonials.length, activeTestimonial])
 
     const renderStars = (rating) => {
         return Array.from({ length: 5 }, (_, i) => (
@@ -68,6 +93,27 @@ export function Testimonials() {
 
     const getInitials = (name) => {
         return name.split(' ').map(n => n[0]).join('').toUpperCase();
+    }
+
+    // Only render the outgoing and incoming cards during slide, otherwise just the active card
+    let cardsToRender = []
+    if (isSliding) {
+        cardsToRender.push({
+            ...testimonials[prevTestimonial],
+            idx: prevTestimonial,
+            className: `testimonial-card slide-out-${slideDirection}`
+        })
+        cardsToRender.push({
+            ...testimonials[activeTestimonial],
+            idx: activeTestimonial,
+            className: `testimonial-card slide-in-${slideDirection}`
+        })
+    } else {
+        cardsToRender.push({
+            ...testimonials[activeTestimonial],
+            idx: activeTestimonial,
+            className: 'testimonial-card active'
+        })
     }
 
     return (
@@ -101,45 +147,50 @@ export function Testimonials() {
                     </div>
                 </div>
 
-                <div className="testimonials-content">
-                    <div className="testimonials-carousel">
-                        <div className="testimonial-card active">
-                            <div className="testimonial-header">
-                                <div className="testimonial-rating">
-                                    {renderStars(testimonials[activeTestimonial].rating)}
+                <div className="testimonials-content" style={{ marginBottom: '2.5rem' }}>
+                    <div 
+                        className="testimonials-carousel"
+                        onMouseEnter={() => setIsPaused(true)}
+                        onMouseLeave={() => setIsPaused(false)}
+                        style={{ position: 'relative', minHeight: 440 }}
+                    >
+                        {cardsToRender.map(card => (
+                            <div key={card.idx} className={card.className} style={{ position: 'absolute', top: 0, left: 0, width: '100%' }}>
+                                <div className="testimonial-header">
+                                    <div className="testimonial-rating">
+                                        {renderStars(card.rating)}
+                                    </div>
+                                    <div className="testimonial-project">
+                                        {card.project}
+                                    </div>
                                 </div>
-                                <div className="testimonial-project">
-                                    {testimonials[activeTestimonial].project}
+                                <blockquote className="testimonial-text">
+                                    "{card.text}"
+                                </blockquote>
+                                <div className="testimonial-author">
+                                    <div className="author-info">
+                                        <div className="author-avatar" style={{backgroundColor: card.color}}>
+                                            {getInitials(card.name)}
+                                        </div>
+                                        <div className="author-name">
+                                            {card.name}
+                                        </div>
+                                        <div className="author-location">
+                                            Shoalhaven Region
+                                        </div>
+                                    </div>
+                                    <div className="testimonial-date">
+                                        {card.date}
+                                    </div>
                                 </div>
                             </div>
-                            
-                            <blockquote className="testimonial-text">
-                                "{testimonials[activeTestimonial].text}"
-                            </blockquote>
-                            
-                            <div className="testimonial-author">
-                                <div className="author-info">
-                                    <div className="author-avatar" style={{backgroundColor: testimonials[activeTestimonial].color}}>
-                                        {getInitials(testimonials[activeTestimonial].name)}
-                                    </div>
-                                    <div className="author-name">
-                                        {testimonials[activeTestimonial].name}
-                                    </div>
-                                    <div className="author-location">
-                                        Shoalhaven Region
-                                    </div>
-                                </div>
-                                <div className="testimonial-date">
-                                    {testimonials[activeTestimonial].date}
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
 
                     <div className="testimonials-navigation">
                         <button 
                             className="nav-btn prev-btn"
-                            onClick={prevTestimonial}
+                            onClick={goToPrevTestimonial}
                             aria-label="Previous testimonial"
                         >
                             ‹
@@ -150,7 +201,10 @@ export function Testimonials() {
                                 <button
                                     key={index}
                                     className={`indicator ${index === activeTestimonial ? 'active' : ''}`}
-                                    onClick={() => setActiveTestimonial(index)}
+                                    onClick={() => {
+                                        if (index === activeTestimonial) return
+                                        slideTo(index, index > activeTestimonial ? 'next' : 'prev')
+                                    }}
                                     aria-label={`Go to testimonial ${index + 1}`}
                                 >
                                     <div className="indicator-fill" />
