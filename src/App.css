@@ -105,6 +105,22 @@
   width: 100%;
 }
 
+.nav-link.active {
+  color: #2563eb;
+  font-weight: 700;
+}
+.nav-link.active::after {
+  width: 100%;
+  background: linear-gradient(90deg, #3b82f6, #1e40af);
+  height: 2.5px;
+  border-radius: 2px;
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  transition: width 0.3s;
+}
+
 .header-contact {
   margin-left: 2rem;
 }
@@ -715,7 +731,7 @@
 }
 
 .footer-logo img {
-  height: 100px;
+  height: 200px;
   width: auto;
 }
 
@@ -1880,4 +1896,23 @@
     font-size: 0.98rem;
     padding: 0.5rem 0.2rem 0.5rem 0.1rem;
   }
+}
+
+.why-crete-mini-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.2rem;
+}
+.mini-cta-btn {
+  font-size: 1.08rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 12px rgba(59,130,246,0.08);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.mini-cta-btn:hover {
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(59,130,246,0.15);
 }

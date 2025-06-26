@@ -1,6 +1,6 @@
 export function WhyCoastalCrete() {
     return (
-        <section className="why-coastal-crete-section">
+        <section className="why-coastal-crete-section" id="about">
           <div className="why-coastal-crete-card">
             <h3 className="why-coastal-crete-title">Why Choose Coastal Crete?</h3>
             <ul className="why-coastal-crete-list">
@@ -10,6 +10,9 @@ export function WhyCoastalCrete() {
                 <li>💎 Only The Highest-Grade Materials</li>
                 <li>🛡️ Peace of Mind: Fully Insured</li>
             </ul>
+            <div className="why-crete-mini-cta">
+              <a href="#projects" className="btn btn-primary mini-cta-btn">See Our Work</a>
+            </div>
           </div>
         </section>
     )
