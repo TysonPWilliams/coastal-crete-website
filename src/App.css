@@ -2591,11 +2591,25 @@
 }
 @media (max-width: 600px) {
   .carousel-3d-track {
-    height: 120px;
+    height: 60vw;
+    min-height: 180px;
   }
   .project-3d-card {
-    width: 80px;
-    height: 120px;
-    border-radius: 0.7rem;
+    width: 90vw;
+    height: 60vw;
+    min-width: 180px;
+    min-height: 120px;
+    max-width: 98vw;
+    max-height: 70vw;
+    border-radius: 1.2rem;
+  }
+  .project-3d-card.left,
+  .project-3d-card.right {
+    width: 40vw;
+    height: 40vw;
+    min-width: 80px;
+    min-height: 80px;
+    max-width: 50vw;
+    max-height: 50vw;
   }
 }
