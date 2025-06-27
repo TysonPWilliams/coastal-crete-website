@@ -51,10 +51,10 @@
 }
 
 .logo {
-    height: 60px;
-    /* Set a prominent, explicit height for the new logo */
+    height: 80px;
+    
     width: auto;
-    /* Ensures the logo maintains its aspect ratio */
+    
     transition: all 0.3s ease;
 }
 
@@ -1753,6 +1753,14 @@
     .sticky-call-button {
         display: block;
     }
+    .testimonials-carousel {
+      padding-bottom: 4.5rem; /* Add space for navigation arrows */
+      min-height: 420px;      /* Ensure enough height for card + arrows */
+    }
+    .testimonials-navigation {
+      z-index: 10;
+      position: relative;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1789,6 +1797,10 @@
     }
     .call-number {
         font-size: 1rem;
+    }
+    .testimonials-carousel {
+      padding-bottom: 5.5rem; /* More space for very small screens */
+      min-height: 440px;
     }
 }
 
@@ -2128,7 +2140,7 @@
 @media (max-width: 600px) {
     .sticky-chat-btn {
         right: 1rem;
-        bottom: 5.5rem;
+        bottom: 5rem; /* Sits just above Call Now button with a small gap */
         padding: 0.6rem 1.1rem;
         font-size: 0.98rem;
     }
@@ -2136,6 +2148,9 @@
     .chat-modal {
         max-width: 98vw;
         padding: 1.2rem 0.5rem 1rem 0.5rem;
+    }
+    .footer {
+        padding-bottom: 7rem; /* Ensures space for sticky/floating buttons */
     }
 }
 
@@ -2612,4 +2627,17 @@
     max-width: 50vw;
     max-height: 50vw;
   }
+}
+
+@media (max-width: 600px) {
+    .footer {
+        padding-bottom: 7rem; /* Ensures space for sticky/floating buttons */
+    }
+}
+
+@media (max-width: 600px) {
+    .facebook-btn {
+        justify-content: center;
+        width: 100%;
+    }
 }

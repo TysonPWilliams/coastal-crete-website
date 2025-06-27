@@ -1,4 +1,5 @@
 import logo from '../assets/logo1.png';
+import tysonWLogoWhite from '../assets/tysonWLogoWhite.png';
 
 export function Footer() {
     return (
@@ -98,6 +99,14 @@ export function Footer() {
                     <div className="footer-legal">
                         <p>&copy; 2025 Coastal Crete Pty Ltd. All rights reserved.</p>
                         <p>Licensed & Insured | ABN: XXX XXX XXX</p>
+                    </div>
+                    <div className="footer-tysonw" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '8px' }}>
+                        <span style={{ fontSize: '0.95rem', color: '#64748b', fontWeight: 500, letterSpacing: '0.01em' }}>
+                            Website made by
+                        </span>
+                        <a href="https://tysonwilliams.dev" target="_blank" rel="noopener noreferrer" title="Need a website? Visit Tyson Williams Web Design" style={{ display: 'inline-flex', alignItems: 'center' }}>
+                            <img src={tysonWLogoWhite} alt="Website by Tyson Williams" style={{ height: '22px', width: 'auto', display: 'block' }} />
+                        </a>
                     </div>
                     <div className="footer-cta">
                         <a href="tel:0497820957" className="footer-cta-button">
