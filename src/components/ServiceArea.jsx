@@ -1,4 +1,10 @@
-export function ServiceArea() {
+import { useState } from 'react'
+import { QuoteModal } from './QuoteModal.jsx'
+
+export function ServiceArea({ setShowQuoteModal }) {
+
+    const [showQuoteModal, setShowQuoteModalState] = useState(false)
+
   return (
     <section className="service-area-section" id="service-area">
       <div className="service-area-container">
@@ -19,9 +25,19 @@ export function ServiceArea() {
           ></iframe>
         </div>
         <div className="service-area-cta">
-          <a href="#contact" className="btn btn-primary">Get Your Free Quote</a>
+          <button
+            className='btn btn-primary'
+            onClick={() => setShowQuoteModal(true)}
+            type='button'
+          >
+            Get Free Quote
+          </button>
         </div>
       </div>
+      <QuoteModal 
+        show={showQuoteModal} 
+        onClose={() => setShowQuoteModalState(false)} 
+      />
     </section>
   )
 } 

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
+import { QuoteModal } from './QuoteModal'
 
-export function Testimonials() {
+export function Testimonials({ setShowQuoteModal }) {
     const [activeTestimonial, setActiveTestimonial] = useState(0)
     const [isPaused, setIsPaused] = useState(false)
     const [slideDirection, setSlideDirection] = useState('next')
@@ -227,7 +228,13 @@ export function Testimonials() {
                         <h3>Ready to Start Your Project?</h3>
                         <p>Join hundreds of satisfied customers who trust Coastal Crete for their concrete needs</p>
                         <div className="cta-buttons">
-                            <a href="#contact" className="btn btn-primary">Get Free Quote</a>
+                            <button
+                                className='btn btn-primary'
+                                onClick={() => setShowQuoteModal(true)}
+                                type='button'
+                            >
+                                Get Free Quote
+                            </button>
                             <a 
                                 href="https://www.facebook.com/CoastalCretePtyLtd/reviews" 
                                 target="_blank" 
