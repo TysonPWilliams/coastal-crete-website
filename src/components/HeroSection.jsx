@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { QuoteModal } from './QuoteModal'
 import pic1 from '../assets/pic1.jpg'
 import pic2 from '../assets/pic2.jpg'
 import pic3 from '../assets/pic3.jpg'
@@ -7,18 +8,33 @@ import pic5 from '../assets/pic5.jpg'
 import pic6 from '../assets/pic6.jpg'
 import pic7 from '../assets/pic7.jpg'
 import pic8 from '../assets/pic8.jpg'
+import pic9 from '../assets/IMG_2066.jpg'
+import pic10 from '../assets/IMG_2090.jpg'
+import pic11 from '../assets/IMG_2280.jpg'
+import pic12 from '../assets/IMG_3129.jpg'
+import pic13 from '../assets/IMG_3388.jpg'
+import pic14 from '../assets/IMG_3389.jpg'
+import pic15 from '../assets/IMG_3771.jpg'
+import pic16 from '../assets/IMG_3868.jpg'
+import pic17 from '../assets/IMG_4253.JPG'
+import pic18 from '../assets/IMG_5910.jpg'
+import pic19 from '../assets/IMG_6448.jpg'
+import pic20 from '../assets/IMG_9795.jpg'
+import pic21 from '../assets/IMG_9796.jpg'
+import pic0 from '../assets/IMG_0695.jpg'
+import pic23 from '../assets/IMG_1157.jpg'
 
-export function HeroSection() {
+export function HeroSection({ setShowQuoteModal }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   
-  const images = [pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8]
+  const images = [pic15, pic0, pic23, pic16, pic17, pic18, pic19, pic20, pic21, pic11, pic12, pic13, pic14, pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8, pic9, pic10]
   
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => 
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       )
-    }, 5000) // Change image every 5 seconds
+    }, 5500) // Change image every 7 seconds
     
     return () => clearInterval(interval)
   }, [images.length])
@@ -124,7 +140,13 @@ export function HeroSection() {
             </div>
           </div>
           <div className="hero-buttons">
-            <a href="#contact" className="btn btn-primary">Get Free Quote</a>
+            <button
+              className="btn btn-primary"
+              onClick={() => setShowQuoteModal(true)}
+              type="button"
+            >
+              Get Free Quote
+            </button>
             <a href="tel:0497 820 957" className="btn btn-secondary">Call Now</a>
           </div>
           <div className="hero-trust-badge">
@@ -155,6 +177,7 @@ export function HeroSection() {
           <div className="stat-label">Customer Satisfaction</div>
         </div>
       </div>
+      <QuoteModal />
     </section>
   )
 }
