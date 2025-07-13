@@ -451,6 +451,7 @@
     z-index: 3;
     min-height: 500px;
     padding: 3rem 0 0 0;
+    margin-top: 5vh;
 }
 
 .hero-text {
@@ -1074,6 +1075,7 @@
 
     .hero-content {
         padding: 2rem 0 0 0;
+        margin-top: 0;
     }
 
     .hero-text {
