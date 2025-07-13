@@ -1474,8 +1474,8 @@
     font-size: 4rem;
     color: #3b82f6;
     position: absolute;
-    top: -1rem;
-    left: -1rem;
+    top: -1.5rem;
+    left: -2rem;
     font-family: serif;
     opacity: 0.3;
 }
@@ -1703,7 +1703,12 @@
     .testimonial-card {
         padding: 2.5rem;
     }
+
+    .testimonial-text::before {
+        display: none;
+    }
 }
+
 
 @media (max-width: 768px) {
     .testimonials {
