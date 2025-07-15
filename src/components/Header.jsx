@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react'
 import logo from '../assets/logo.png'
+import { useChat } from './ChatContext'
 
 const NAV_SECTIONS = [
-  { id: 'home', label: 'Home' },
-  { id: 'services', label: 'Services' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'about', label: 'About' },
-  { id: 'contact', label: 'Contact' },
+    { id: 'home', label: 'Home' },
+    { id: 'services', label: 'Services' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'about', label: 'About' },
+    { id: 'contact', label: 'Contact' },
 ]
 
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [activeSection, setActiveSection] = useState('home')
+    const { setOpen } = useChat()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -86,14 +88,26 @@ export function Header() {
                         onClick={() => setIsMenuOpen(false)}
                     >
                         {NAV_SECTIONS.map(section => (
-                          <li key={section.id}>
-                            <a 
-                              href={`#${section.id}`}
-                              className={`nav-link${activeSection === section.id ? ' active' : ''}`}
-                            >
-                              {section.label}
-                            </a>
-                          </li>
+                            <li key={section.id}>
+                                {section.id === 'contact' ? (
+                                    <button
+                                        className={`nav-link${activeSection === section.id ? ' active' : ''}`}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                            setOpen(true)
+                                        }}
+                                    >
+                                        {section.label}
+                                    </button>
+                                ) : (
+                                    <a
+                                        href={`#${section.id}`}
+                                        className={`nav-link${activeSection === section.id ? ' active' : ''}`}
+                                    >
+                                        {section.label}
+                                    </a>
+                                )}
+                            </li>
                         ))}
                     </ul>
                 </nav>

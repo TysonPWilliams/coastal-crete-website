@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { useChat } from './ChatContext'
 
 export function StickyChatWidget() {
-  const [open, setOpen] = useState(false)
+  const { open, setOpen } = useChat()
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')

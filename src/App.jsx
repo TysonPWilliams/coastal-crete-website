@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import { Header } from './components/Header'
 import { HeroSection } from './components/HeroSection'
@@ -13,8 +13,13 @@ import { ServiceArea } from './components/ServiceArea'
 import { QuoteModal } from './components/QuoteModal'
 import { Services } from './components/Services'
 
+
 function App() {
   const [showQuoteModal, setShowQuoteModal] = useState(false)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }), [];
 
   return (
     <div className="App">
