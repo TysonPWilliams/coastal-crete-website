@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
 import pic1 from '../assets/pic1.jpg'
-import pic2 from '../assets/pic2.jpg'
 import pic3 from '../assets/pic3.jpg'
 import pic4 from '../assets/pic4.jpg'
 import pic5 from '../assets/pic5.jpg'
@@ -24,7 +23,7 @@ import pic22 from '../assets/IMG_9871.jpg'
 import pic0 from '../assets/IMG_0695.jpg'
 import pic23 from '../assets/IMG_1157.jpg'
 
-const images = [pic0, pic23, pic16, pic17, pic18, pic19, pic20, pic21, pic22, pic11, pic12, pic13, pic14, pic15, pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8, pic9, pic10]
+const images = [pic0, pic23, pic16, pic17, pic18, pic19, pic20, pic21, pic22, pic11, pic12, pic13, pic14, pic15, pic1, pic3, pic4, pic5, pic6, pic7, pic8, pic9, pic10]
 
 export function Projects() {
   const [current, setCurrent] = useState(0)
