@@ -1,7 +1,5 @@
-import { useState } from 'react'
 import logo from '../assets/logo1.png';
 import tysonWLogoWhite from '../assets/tysonWLogoWhite.png';
-import { QuoteModal } from './QuoteModal.jsx'
 
 export function Footer({ setShowQuoteModal }) {
     return (
