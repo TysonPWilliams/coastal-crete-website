@@ -156,7 +156,7 @@ export function Testimonials({ setShowQuoteModal }) {
                         style={{ position: 'relative', minHeight: 440 }}
                     >
                         {cardsToRender.map(card => (
-                            <div key={card.idx} className={card.className} style={{ position: 'absolute', top: 0, left: 0, width: '100%' }}>
+                            <div key={`${card.idx}-${card.className}`} className={card.className} style={{ position: 'absolute', top: 0, left: 0, width: '100%' }}>
                                 <div className="testimonial-header">
                                     <div className="testimonial-rating">
                                         {renderStars(card.rating)}
