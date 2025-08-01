@@ -19,7 +19,7 @@ export function StickyChatWidget() {
     }
     setError('');
     setSubmitted(true);
-    await fetch('https://formspree.io/f/xeokpven', {
+    await fetch('https://formspree.io/f/mldllvgr', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
