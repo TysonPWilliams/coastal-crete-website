@@ -100,7 +100,7 @@ export function Footer({ setShowQuoteModal }) {
                 <div className="footer-bottom-content">
                     <div className="footer-legal">
                         <p>&copy; 2025 Coastal Crete Pty Ltd. All rights reserved.</p>
-                        <p>Licensed & Insured | ABN: XXX XXX XXX</p>
+                        <p>Licensed & Insured | ABN: 2481 0412 374 | Lic No: 292 649C</p>
                     </div>
                     <div className="footer-tysonw" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '8px' }}>
                         <span style={{ fontSize: '0.95rem', color: '#64748b', fontWeight: 500, letterSpacing: '0.01em' }}>
